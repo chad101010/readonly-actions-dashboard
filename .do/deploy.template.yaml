@@ -1,0 +1,8 @@
+spec:
+  name: readonly-dashboard
+  static_sites:
+  - environment_slug: html
+    github:
+      branch: main
+      repo_clone_url: https://github.com/chad101010/FuelMovesReadinessDashboard.git
+    name: readonly-dashboard

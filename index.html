@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +126,21 @@ body {
   background-color: #faffe3;
 }
 
+.date:not(:last-child)  {
+  text-decoration: line-through;
+}
+
+.as {
+  width: 18%;
+}
+
+.as:first-child {
+  width: 25%;
+}
+.as:nth-child(4n) {
+  width: 60%;
+}
+
 ._System {
   padding-top: 2rem;
   padding: 2rem;
@@ -195,16 +211,6 @@ body {
   background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
 .requirements {
   display: table-row;
   table-layout: fixed;
@@ -245,1245 +251,123 @@ body {
   flex: 1;
 }
 
-    </style>
-    <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
-    <script src="scripts.js" async></script>
-    <script> window.console = window.console || function(t) {}; </script>
+</style>
+<script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+<script> window.console = window.console || function(t) {}; </script>
 </head>
-
 <body>
-
-<div class="tab">
-  <div style="float: left; padding: 1rem; font-size: 30px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Fuel Moves Readiness Dashboard</div>
-  <div style="float: right; padding: .5rem;">
-    <button class="tablinks" onclick="openTab(event, 'Readiness')">Readiness Checklist</button>
-    <button class="tablinks t2" onclick="openTab(event, 'System')">System Status</button>
+  <div class="tab">
+  <div style="float: left; padding: 1rem; font-size: 30px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Readiness Actions Tracker Dashboard</div>
   </div>
-</div>
-
-<div style="display: block;" id="Readiness" class="tabcontent System">
-  <div class="status-container">
-    <div class="flex flex-row">
-      <div class="Readiness-headline">Total Open Items: 33</div>
-    </div>
-    <div class="flex flex-row">
-      <div class="row" onclick="openTabMenu(event, 'System', 'id2')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.7.10<br>
-              Right Train CRHVAC Filtration</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 7</p>
-            <p class="row">Open Maintenance: 10</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id4')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.7.11<br>
-              Right Train CRHVAC Cooling</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 4</p>
-            <p class="row">Open Maintenance: 2</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id5')">
-        <div class="task-box-complete">
-          <div class="inner-taskbox-complete">
-            <div>LCO 3.7.14<br>
-              SFP Water Level</div>
-          </div>
-          <div class="lower-taskbox-complete">
-            <p class="row">LCO Met</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="flex flex-row">
-      <div class="row" onclick="openTabMenu(event, 'System', 'id6')">
-        <div class="task-box-complete">
-          <div class="inner-taskbox-complete">
-            <div>LCO 3.7.15<br>
-              SFP Boron Concentration</div>
-          </div>
-          <div class="lower-taskbox-complete">
-            <p class="row">LCO Met</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id7')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.8.2<br>
-              AC Sources Shutdown</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 6</p>
-            <p class="row">Open Maintenance: 12</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id11')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.8.3<br>
-              Diesel Fuel, Lube Oil, and Starting Air</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 1</p>
-            <p class="row">Open Maintenance: 4</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-row">
-      <div class="row" onclick="openTabMenu(event, 'System', 'id8')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.8.5<br>
-              DC Sources Shutdown</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 1</p>
-            <p class="row">Open Maintenance: 3</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id9')">
-        <div class="task-box-complete">
-          <div class="inner-taskbox-complete">
-            <div>LCO 3.8.8<br>
-              Inverters Shutdown</div>
-          </div>
-          <div class="lower-taskbox-complete">
-            <p class="row">LCO Met</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" onclick="openTabMenu(event, 'System', 'id10')">
-        <div class="task-box-incomplete">
-          <div class="inner-taskbox">
-            <div>LCO 3.8.10<br>
-              Distribution Systems Shutdown</div>
-          </div>
-          <div class="lower-taskbox">
-            <p class="row">Inoperable Items: 2</p>
-            <p class="row">Open Maintenance: 2</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div style="margin: 0rem 2rem;">
+        <p style="float: left; width: 50%;">Open</p>
+        <p style="float: left; width: 50%;">Closed</p>
+        <hr>
+        <thead>
+    <div id="showDataOpen"></div>
+    <div id="showDataClosed"></div>
   </div>
-</div>
-<div id="System" class="tabcontent System">
-  <div class="dropdown">
-    <select id="drop" class="div-toggle" data-target=".info-1">
-      <option value="id2" data-show=".id2">LCO 3.7.10 Right Train CRHVAC Filtration</option>
-      <option value="id4" data-show=".id4">LCO 3.7.11 Right Train CRHVAC Cooling</option>
-      <option value="id5" data-show=".id5">LCO 3.7.14 SFP Water Level</option>
-      <option value="id6" data-show=".id6">LCO 3.7.15 SFP Boron Concentration</option>
-      <option value="id7" data-show=".id7">LCO 3.8.2 AC Sources Shutdown</option>
-      <option value="id11" data-show=".id11">LCO 3.8.3 Diesel Fuel, Lube Oil, and Starting Air</option>
-      <option value="id8" data-show=".id8">LCO 3.8.5 DC Sources Shutdown</option>
-      <option value="id9" data-show=".id9">LCO 3.8.8 Inverters Shutdown</option>
-      <option value="id10" data-show=".id10">LCO 3.8.10 Distribution Systems Shutdown</option>
-    </select>
-  </div>
-  <div style="width: 100%; padding: 1rem;"></div>
-  <div id="infoP" class="info-1">
-    <div class="id2 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.7.10 Right Train CRHVAC Filtration</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>V-96</td>
-            <td>CONTROL ROOM HVAC REFRIG CONDENSING UNIT</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-26B</td>
-            <td>AIR FILTER UNIT VF-26B FAN</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Ductwork and Dampers</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Control Room Envolope</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>RIA-1818B</td>
-            <td>CONTROL ROOM HVAC CONTINUOUS AIR MONITOR</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2629</td>
-            <td>Air Handling Unit FAN V-96</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2627</td>
-            <td>Air Filter Unit FAN V-26B</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2624</td>
-            <td>Cond Unit VC-10 for AHU-96</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>RM-93B</td>
-            <td>CRHVAC Fire Damper Inspection</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>B Train</td>
-            <td>Completed 5/28/25</td>
-          </tr>
-          <tr>
-            <td>RO-28B</td>
-            <td>CR Envelope Positive Pressure Test - B Train</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>B Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>RT-85D-B</td>
-            <td>CR Emergency Ventilation Filtration Testing</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>B Train</td>
-            <td>Complete 8/6/25</td>
-          </tr>
-          <tr>
-            <td>MO-33B</td>
-            <td>Control Room Ventilation Emergency Operation</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>B Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>VC-10</td>
-            <td>CONTROL ROOM HVAC REFRIG CONDENSING UNIT</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Freon Leak, WO 00590155; Missing Pipe Clamps, WO 00586634</td>
-            <td>Freon Leak Repair: Complete 8/22/25</td>
-          </tr>
-          <tr>
-            <td>DPI-1688</td>
-            <td>VC-10 COMPRESSOR OIL DIFF PRESS</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>WO 00602019; Needed for Operator rounds, not operability</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>VC-10 PMs</td>
-            <td>CONTROL ROOM HVAC REFRIG CONDENSING UNIT</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Reasonabale Assurance Needed for PMs Not Performed</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>CR-25011230</td>
-            <td>RT-85D-B, Vendor Contract Not Issued for Safety Related Work</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Contract reissued, 8/21/25</td>
-          </tr>
-          <tr>
-            <td>V-96 PM</td>
-            <td>Lube & V-Belt Inspection</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>WO 00588247 - 10/124/25. PM is late. Reasonable Assurance Needed. ENCC PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-26B / V-96 PM</td>
-            <td>Megger and Grease Motor</td>
-            <td>
-              <div class="Status">Validating WO</div>
-            </td>
-            <td>WO 50085446-01-01-0001, 8/28/24. WO not found in records.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-96 Filter PM</td>
-            <td>Filter Replacement</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>WO 00588222 - 10/24/25. PM is late. Reasonable Assurance Needed. ENCC PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2629 PM Breaker</td>
-            <td>PM Breaker</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>WO 00589787 - 10/24/25. PM is late. Reasonable Assurance Needed. ENCC PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2627 PM Breaker</td>
-            <td>PM Breaker</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>WO 00590000 - 10/24/25. PM is late. Reasonable Assurance Needed. ENCC PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2624 PM Breaker</td>
-            <td>PM Breaker</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>WO 00583244 - 10/24/25. PM is late. Reasonable Assurance Needed. ENCC PM</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id4 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.7.11 Right Train CRHVAC Cooling</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>VC-10</td>
-            <td>CONTROL ROOM HVAC REFRIG CONDENSING UNIT</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2624</td>
-            <td>Cond Unit VC-10 for AHU-96</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-96</td>
-            <td>CONTROL ROOM VENTILATION MAIN SUPPLY FAN</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2629</td>
-            <td>Air Handling Unit Fan V-96</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-         </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>RT-202B</td>
-            <td>CRHVAC Heat Removal Capability</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>B Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>CR-25011284</td>
-            <td>RT-202B; Required M&TE not currently available</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-         </tbody>
-      </table>
-    </div>
-    <div class="id5 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.7.14 SFP Water Level</div><br />
-        <p style="float: left; width: 100%;">Equipment</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 23.75%;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>The SFP water level shall be >= 647 ft elevation</td>
-            <td><div class="Status">Operable</div>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id6 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.7.15 SFP Boron Concentration.</div><br />
-        <p style="float: left; width: 100%;">Equipment</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 23.75%;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>The SFP boron concentration shall be >= 1720 ppm.</td>
-            <td><div class="Status">Operable</div>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id7 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.8.2 AC Sources Shutdown</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>K-6B</td>
-            <td>EMERGENCY DIESEL GENERATOR 1-2</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>T-25B</td>
-            <td>EMERGENCY DIESEL GEN 1-2 K-6B DAY TANK</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-24C</td>
-            <td>DIESEL GENERATOR ROOM SUPPLY FAN</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>V-24D</td>
-            <td>DIESEL GENERATOR ROOM SUPPLY FAN</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2425</td>
-            <td>DIESEL GENERATOR ROOM SUPPLY FAN V-24C</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-2435</td>
-            <td>DIESEL GENERATOR ROOM SUPPLY FAN V-24D</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>MO-7A-2</td>
-            <td>Emergency Diesel Generator 1-2</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>RE-132</td>
-            <td>Diesel Generator 1-2 Load Reject</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>RO-128-2</td>
-            <td>Diesel Generator 1-2 24 Hour Load Run</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>K-6B PMs</td>
-            <td>EMERGENCY DIESEL GENERATOR 1-2</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed</td>
-          </tr>
-          <tr>
-            <td>T-303</td>
-            <td>Diesel Generator 1-1 Overspeed Trip Test</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>T-25B PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 9/3/23. ECPM PM</td>
-          </tr>
-          <tr>
-            <td>52-2425 Breaker PM</td>
-            <td>Breaker PM</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 10/23/22. ECPM PM</td>
-          </tr>
-          <tr>
-            <td>52-2435 Breaker PM</td>
-            <td>Breaker PM</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 1/18/23. ECPM PM</td>
-          </tr>
-          <tr>
-            <td>V-24C</td>
-            <td>Motor Megger and Grease</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 8/20/23. ENCC PM</td>
-          </tr>
-          <tr>
-            <td>V-24C</td>
-            <td>Fan Overhaul</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 9/1/23. ENCC PM</td>
-          </tr>
-          <tr>
-            <td>V-24D</td>
-            <td>Motor Megger and Grease</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>Reasonable Assurance Needed for PMs Not Performed - Late Date 11/26/22. ENCC PM</td>
-          </tr>
-          <tr>
-            <td>V-24D</td>
-            <td>Fan Overhaul</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Right Train</td>
-            <td>PM Late 2/10/29</td>
-          </tr>
-          <tr>
-            <td>RE-138</td>
-            <td>Calibration of BUS 1D Undervoltage and Time Delay Relays</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td>WO 52958485 8/20/25</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id8 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.8.5 DC Sources Shutdown</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ED-02</td>
-            <td>MAIN STATION BATTERY RIGHT TRAIN</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-16</td>
-            <td>BATTERY CHARGER NO. 2</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-17</td>
-            <td>BATTERY CHARGER NO. 3</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ED-02 Replacement</td>
-            <td>STATION BATTERY</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Right Train</td>
-            <td>Complete 7/31/25</td>
-          </tr>
-          <tr>
-            <td>ME-12B</td>
-            <td>ED-02 Battery Checks</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train - Monthly</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>QE-35B</td>
-            <td>ED-02 Battery Checks</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train - Quarterly</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>CR 25011578</td>
-            <td>ED-02; Inter-rack connection resistance out of spec per QE-35B</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id9 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.8.8 Inverters Shutdown</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ED-07</td>
-            <td>INVERTER NO. 2</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-09</td>
-            <td>INVERTER NO. 4</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          </tbody>
-      </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ED-07 PM</td>
-            <td>Inverter Overhaul</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Right Train</td>
-            <td>Late: 2/11/30</td>
-          </tr>
-          <tr>
-            <td>ED-07 PM</td>
-            <td>Inverter PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Right Train</td>
-            <td>Late: 1/16/27</td>
-          </tr>
-          <tr>
-            <td>ED-09 PMs</td>
-            <td>Overhaul/Inverter PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>ED-09 does not provide 1-2 EDG support functions</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id10 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.8.10 Distribution Systems Shutdown</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ED-21A</td>
-            <td>125 VOLTS DC DISTRIBUTION PANEL</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-21-1</td>
-            <td>125 VDC PANEL</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-21-2</td>
-            <td>125 VDC PANEL</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EA-12</td>
-            <td>BUS 1D (2400 VOLT)</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          <tr>
-            <td>EB-20</td>
-            <td>480 VOLT LOAD CONTROL CENTER NO. 20</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-12</td>
-            <td>480 VOLT LOAD CONTROL CENTER NO. 12</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          <tr>
-            <td>EB-02</td>
-            <td>480 VOLT MCC NO.2</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-08</td>
-            <td>480 VOLT MCC NO.8</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-26</td>
-            <td>480 VOLT MCC NO.26</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right Train</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>MCC-2 PM </td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Right Train - Do Not Perform During Fuel Moves. WO 00582368 - 8/25/25</td>
-            <td>Complete 8/25/25</td>
-          </tr>
-          <tr>
-            <td>EA-12 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Late Date 2/5/30</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EA-12 PM</td>
-            <td>Relay Testing</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Late Date 4/1/28</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EA-20 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Late Date 9/25/30</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-12 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Reasonable Assurance Needed. ECPM PM Late Date 10/14/22</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-08 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Reasonable Assurance Needed. ENCC PM Late Date 4/14/24</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-26 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>On Demand PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>EB-24 PM</td>
-            <td>Clean and Inspect</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>On Demand PM</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-21A PM</td>
-            <td></td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>No PMs</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-21-1 PM</td>
-            <td></td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>No PMs</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>ED-21-2 PM</td>
-            <td></td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>No PMs</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="id11 hide tq">
-      <table class="table" id="sortable-table">
-        <div class="_SystemTitle">LCO 3.8.3 Diesel Fuel, Lube Oil, and Starting Air</div><br />
-        <p style="float: left; width: 50%;">Equipment</p>
-        <p style="float: left; width: 50%;">Maintenance</p>
-        <hr>
-        <thead>
-          <tr>
-            <th style="width: 20.75%;">ID</th>
-            <th style="width: 31.75%;">Title</th>
-            <th style="width: 23.75%;">Status</th>
-            <th style="width: 23.75%;">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>T-10A</td>
-            <td>Fuel Oil Storage Tank</td>
-            <td>
-              <div class="Status">Inoperable</div>
-            </td>
-            <td>Common Source</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>P-18A</td>
-            <td>Fuel Oil Transfer Pump - Right</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>52-867</td>
-            <td>Fuel Oil Transfer Pump P-18A</td>
-            <td>
-              <div class="Status">Operable</div>
-            </td>
-            <td>Right</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table _2" id="parts-table">
-        <thead>
-          <tr>
-            <th style="width: 17%; border-left: 1px solid #aaa;">ID</th>
-            <th style="width: 28%;">Title</th>
-            <th style="width: 20%;">Status</th>
-            <th style="width: 20%;">Notes</th>
-            <th style="width: 15%;">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>T-10A Inspection</td>
-            <td>Fuel Oil Storage Tank</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Common Source</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>MO-7A-1X</td>
-            <td>Fuel Oil Transfer Pump Testing</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Completed 8/14/25</td>
-          </tr>
-          <tr>
-            <td>MO-7A-2X</td>
-            <td>Fuel Oil Transfer Pump Testing</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>MS-46</td>
-            <td>Verification of EDG Stored Lube Oil Inventory</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td>Common Source</td>
-            <td>Completed 8/7/25</td>
-          </tr>
-          <tr>
-            <td>MC-22</td>
-            <td>Fuel Oil Sampling</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Common Source</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>CR-25011273</td>
-            <td>Fuel Oil Program, No qualified sample analysis vendor</td>
-            <td>
-              <div class="Status">Open</div>
-            </td>
-            <td>Common Source</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>P-18A</td>
-            <td>Coupling PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Completed 6/25/25</td>
-          </tr>
-          <tr>
-            <td>P-18B</td>
-            <td>Coupling PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Completed 4/17/25</td>
-          </tr>
-          <tr>
-            <td>52-867</td>
-            <td>Breaker PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Completed 5/1/24</td>
-          </tr>
-          <tr>
-            <td>52-123</td>
-            <td>Breaker PM</td>
-            <td>
-              <div class="Status">Closed</div>
-            </td>
-            <td></td>
-            <td>Completed 4/15/25</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 </body>
 
+<script>
+  let tableFromJsonOpen = () => {
+    // the json data.
+    const actionData = [
+      {'Action': 'Create a dashboard action tracker', 'Owner': 'W. Townes', 'Due Date': ['8/18/2025', '9/2/2025'], 'Comments': 'Sample of action extended.  Strikethrough original date and enter new due date in the Due Date Column.'},
+      {'Action': 'Review the Right Train CRHVAC open PM items on the Fuel Moves Dashboard for reasonable assurance of operability', 'Owner': 'Bill Engels', 'Due Date': ['8/28/2025'], 'Comments': ''},
+      {'Action': 'Review the 1-2 EDG (K-6B) open PM items on the Fuel Moves Dashboard for reasonable assurance of operability', 'Owner': 'Bill Engels', 'Due Date': ['8/28/2025'], 'Comments': ''},
+      {'Action': 'Review the open PM items on the Fuel Moves Dashboard for all systems other than 1-2 EDG and Right Train CRHVAC for reasonable assurance of operability', 'Owner': 'Chris Peterson', 'Due Date': ['8/28/2025'], 'Comments': ''},
+      {'Action': 'Resolve the CR 25011273, no qualified fuel oil sample analysis vendor.', 'Owner': 'Bill Turco', 'Due Date': ['9/4/2025'], 'Comments': ''},
+       {'Action': 'Ensure a complete MC-22, Fuel Oil Sampling is completed.', 'Owner': 'Bill Turco', 'Due Date': ['9/4/2025'], 'Comments': ''},
+    ]
+
+    const table = document.createElement("table");    // Create table element.
+    table.classList.add('table');
+    let tr = table.insertRow(-1);                   // table row.
+
+    // Extract value for table headers. 
+    let col = Object.keys(actionData[0]);
+    console.log(col);
+
+    col.forEach((item) => {
+      let th = document.createElement("th");      // table header.
+      th.classList.add('as');
+      th.innerHTML = item;
+      tr.appendChild(th);
+    });
+
+    // add json data to the table as rows.
+    actionData.forEach((item) => {
+      tr = table.insertRow(-1);
+
+      let val = Object.values(item);
+
+      val.forEach((element, i) => {
+        if(i != 2) {
+          let tabCell = tr.insertCell(-1);
+          tabCell.innerHTML = element;          
+        } else {        
+          let tabCell = tr.insertCell(-1);
+          element.forEach((arr, i) => {
+            tabCell.innerHTML += "<p class='date'>"+element[i]+"</p>";            
+          });
+        }
+      });
+    });
+
+    // Finally, add the newly created table with json data, to a container.
+    const divShowData = document.getElementById('showDataOpen');
+    divShowData.innerHTML = "";
+    divShowData.appendChild(table);
+  }
+  let tableFromJsonClosed = () => {
+    // the json data.
+    const actionDataClosed = [
+      {'Action': 'Create a dashboard action tracker', 'Owner': 'W. Townes', 'Due Date': ['8/18/2025', 'Complete'], 'Comments': '8/26 Complete: Dashboard Action tracker created.  Will be implemented at by 8/27/25-WDT'},
+    ]
+
+    const table = document.createElement("table");    // Create table element.
+    table.classList.add('table', '_2');
+    let tr = table.insertRow(-1);                   // table row.
+
+    // Extract value for table headers. 
+    let col = Object.keys(actionDataClosed[0]);
+    console.log(col);
+
+    col.forEach((item) => {
+      let th = document.createElement("th");      // table header.
+      th.classList.add('as');
+      th.innerHTML = item;
+      tr.appendChild(th);
+    });
+
+    // add json data to the table as rows.
+    actionDataClosed.forEach((item) => {
+      tr = table.insertRow(-1);
+
+      let val = Object.values(item);
+
+      val.forEach((element, i) => {
+        if(i != 2) {
+          let tabCell = tr.insertCell(-1);
+          tabCell.innerHTML = element;          
+        } else {        
+          let tabCell = tr.insertCell(-1);
+          element.forEach((arr, i) => {
+            tabCell.innerHTML += "<p class='date'>"+element[i]+"</p>";            
+          });
+        }
+      });
+    });
+
+    // Finally, add the newly created table with json data, to a container.
+    const divShowData = document.getElementById('showDataClosed');
+    divShowData.innerHTML = "";
+    divShowData.appendChild(table);
+  }
+  window.onload = function(){
+  tableFromJsonOpen();
+  tableFromJsonClosed();
+  }
+</script>
 </html>
